@@ -22,7 +22,7 @@
     <ProjectGuid>{0BABAFCD-C6E5-4B82-B796-FA866399E1FD}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>TinyMSLicenseViewer</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.10586.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
     <SccProjectName>SAK</SccProjectName>
     <SccAuxPath>SAK</SccAuxPath>
     <SccLocalPath>SAK</SccLocalPath>

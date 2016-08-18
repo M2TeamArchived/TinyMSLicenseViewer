@@ -47,7 +47,7 @@ inline BOOL EnablePerMonitorDialogScaling()
 	return -1;
 }
 
-// 开启子窗体DPI消息(至少Win10)
+// 开启子窗体DPI消息(Win10 TH1和TH2)
 inline BOOL EnableChildWindowDpiMessage(
 	_In_ HWND hWnd,
 	_In_ BOOL bEnable)
@@ -60,6 +60,22 @@ inline BOOL EnableChildWindowDpiMessage(
 
 	if (pEnableChildWindowDpiMessage)
 		return pEnableChildWindowDpiMessage(hWnd, bEnable);
+	return -1;
+}
+
+// 开启子窗体DPI消息(Win10 RS1及以后)
+inline BOOL NtUserEnableChildWindowDpiMessage(
+	_In_ HWND hWnd,
+	_In_ BOOL bEnable)
+{
+	typedef BOOL(WINAPI *PFN_NtUserEnableChildWindowDpiMessage)(HWND, BOOL);
+
+	PFN_NtUserEnableChildWindowDpiMessage pNtUserEnableChildWindowDpiMessage =
+		(PFN_NtUserEnableChildWindowDpiMessage)GetProcAddress(
+			GetModuleHandleW(L"win32u.dll"), "NtUserEnableChildWindowDpiMessage");
+
+	if (pNtUserEnableChildWindowDpiMessage)
+		return pNtUserEnableChildWindowDpiMessage(hWnd, bEnable);
 	return -1;
 }
 
@@ -189,7 +205,7 @@ int WINAPI MessageDialog(
 	if (!hWnd) return -1;
 
 	EnableChildWindowDpiMessage(hWnd, TRUE);
-
+	NtUserEnableChildWindowDpiMessage(hWnd, TRUE);
 
 	// 获取DPI比例
 
