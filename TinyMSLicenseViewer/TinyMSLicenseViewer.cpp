@@ -9,12 +9,6 @@
 
 #include <ShellScalingApi.h>
 
-// 为编译通过而禁用的警告
-#if _MSC_VER >= 1200
-#pragma warning(push)
-#pragma warning(disable:4191) // 从“type of expression”到“type required”的不安全转换(等级 3)
-#endif
-
 inline HRESULT WINAPI GetDpiForMonitor(
 	_In_ HMONITOR hmonitor,
 	_In_ MONITOR_DPI_TYPE dpiType,
@@ -78,10 +72,6 @@ inline BOOL NtUserEnableChildWindowDpiMessage(
 		return pNtUserEnableChildWindowDpiMessage(hWnd, bEnable);
 	return -1;
 }
-
-#if _MSC_VER >= 1200
-#pragma warning(pop)
-#endif
 
 #endif // !PER_MONITOR_DPI_AWARE_SUPPORT
 
@@ -294,8 +284,8 @@ int WINAPI MessageDialog(
 }
 
 const wchar_t szHeader[] =
-L"TinyMSLicenseViewer 1.1\r\n"
-L"\xA9 2016 M2-Team. All rights reserved.\r\n\r\n"
+L"TinyMSLicenseViewer 1.2\r\n"
+L"\xA9 M2-Team. All rights reserved.\r\n\r\n"
 L"========以下是本机上微软产品的授权情况========\r\n\r\n";
 
 const wchar_t *strQuery[2] =
