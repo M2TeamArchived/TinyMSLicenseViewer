@@ -38,7 +38,7 @@
     <ProjectGuid>{0BABAFCD-C6E5-4B82-B796-FA866399E1FD}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>TinyMSLicenseViewer</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
     <SccProjectName>SAK</SccProjectName>
     <SccAuxPath>SAK</SccAuxPath>
     <SccLocalPath>SAK</SccLocalPath>
@@ -133,43 +133,43 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)Output\Binary\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)Output\Temp\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\Temp\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)Output\Binary\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)Output\Temp\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\Temp\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)Output\Binary\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)Output\Temp\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\Temp\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)Output\Binary\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)Output\Temp\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\Temp\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)Output\Binary\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)Output\Temp\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\Temp\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)Output\Binary\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)Output\Temp\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\Temp\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)Output\Binary\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)Output\Temp\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\Temp\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)Output\Binary\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)Output\Temp\$(MSBuildProjectName)_$(Configuration)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)Output\$(MSBuildProjectName)\$(Configuration)\$(Platform)\Temp\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -344,14 +344,15 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="M2MessageDialogResource.h" />
+    <ClInclude Include="M2Win32Helpers.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Version.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="M2Win32Helpers.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -365,7 +366,9 @@
     <ClCompile Include="TinyMSLicenseViewer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ResourceCompile Include="M2MessageDialogResource.rc" />
     <ResourceCompile Include="TinyMSLicenseViewer.rc" />
+    <ResourceCompile Include="Version.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="TinyMSLicenseViewer.ico" />

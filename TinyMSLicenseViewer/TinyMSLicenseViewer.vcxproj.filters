@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -25,6 +22,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Version.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="M2MessageDialogResource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="M2Win32Helpers.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,9 +41,18 @@
     <ClCompile Include="TinyMSLicenseViewer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="M2Win32Helpers.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="TinyMSLicenseViewer.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="Version.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="M2MessageDialogResource.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>
