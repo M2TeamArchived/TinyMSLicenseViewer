@@ -33,6 +33,9 @@
     <ClInclude Include="M2Win32Helpers.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="M2BaseHelpers.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
